@@ -15,32 +15,23 @@ for (int i = 0; i < secuencial.Length; i++)
 timeMeasure.Start();
 for (int i = 0; i < secuencial.Length; i++)
 {
-    min = i;
-
-    //  INTERCAMBIAR VALORES MEDIANTE POSICIONES
-    for (int j = i+1; j < secuencial.Length; j++)
-    {
-        //  VALIDAR DATOS MENORES
-
-        if (secuencial[j] < secuencial[min])
-        {
-            min = j;
-        }
-    }
-    //  INTERCAMBIANDO VALORES
-    aux = secuencial[i];
-    secuencial[i] = secuencial[min];
-    secuencial[min] = aux;
-
+	for (int j = 0; j < secuencial.Length-1; j++)
+	{
+		min = j + 1;
+		if (secuencial[j] > secuencial[j+1])
+		{
+			aux = secuencial[j];
+			secuencial[j] = secuencial[j+1];
+			secuencial[j+1] = aux;
+		}
+	}
 }
 
-
-//  IMPRESION DE DATOS ORDENADOS
-Console.WriteLine("\nDATOS ORDENADOS");
+Console.WriteLine("\nLISTA ORDENDA");
 for (int i = 0; i < secuencial.Length; i++)
 {
-    Console.Write(secuencial[i]+" ");
+	Console.Write(secuencial[i]+" ");
 }
 
 timeMeasure.Stop();
-Console.WriteLine($"\nTiempo de ejecucion: {timeMeasure.Elapsed.TotalMilliseconds} ms");
+Console.WriteLine($"\nTiempo de depuracion: {timeMeasure.Elapsed.TotalMilliseconds} ms");
